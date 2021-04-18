@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Page Title</title>
+        <title>BeeSafe</title>
     </head>
     <body>
         <h1>This is a Heading</h1>
@@ -20,7 +20,7 @@ if (defined($servername) && defined($username) && defined($password) && defined(
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-    
+
     echo "Connected successfully";
 }
 ?>
