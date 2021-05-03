@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS pages (
+  id INT(4) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(30),
+  content TEXT,
+  INDEX(title)
+) engine=InnoDB;
