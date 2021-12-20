@@ -7,10 +7,37 @@
             <link rel="stylesheet" href="main.css">
         </head>
     <body>
+    <?php
+    include_once 'vars.php';
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $sql = "SELECT id, title, content FROM pages";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while ($row = $result->fetch_assoc()) {
+            $id = $row["id"];
+            $title = $row['title'];
+            $content = $row['content'];
+
+        }
+    } else {
+        echo "0 results";
+    }
+    $conn->close();
+    ?>
 
     <div class="header">
         <h1>BeeSafe</h1>
         <p>A website created by me.</p>
+        <p><?php echo $content ?></p>
     </div>
 
     <div class="navbar">
@@ -53,19 +80,3 @@
 
     </body>
 </html>
-
-<?php
-include_once 'vars.php';
-
-if (defined($servername) && defined($username) && defined($password) && defined($db) && defined($port)) {
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $db, $port);
-
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    echo "Connected successfully";
-}
-?>
