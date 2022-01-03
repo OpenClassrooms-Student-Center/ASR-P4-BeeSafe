@@ -57,7 +57,7 @@
 <?php
 include_once 'vars.php';
 
-if (defined($servername) && defined($username) && defined($password) && defined($db) && defined($port)) {
+if (isset($servername) && isset($username) && isset($password) && isset($db) && isset($port)) {
     // Create connection
     $conn = new mysqli($servername, $username, $password, $db, $port);
 
